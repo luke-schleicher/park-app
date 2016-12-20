@@ -1,5 +1,8 @@
+require 'api'
+
 class Player < ApplicationRecord
 
+  after_create :generate_activities
   after_update :generate_favorite_parks
 
   before_create :generate_token
@@ -26,7 +29,22 @@ class Player < ApplicationRecord
 
   private
 
+  def generate_activities
+    if Activity.none?
+      Socrata_API.generate_activities
+    end
+  end
+
   def generate_favorite_parks
+    self.activities.each do |activity|
+
+      returned_parks = Socrata_API.query(activity.name)
+
+      returned_parks.each do |park|
+        self.parks << Park.new(name: park[:park_name], number: park[:park_number], street_address: park[:street_address], zip: park[:zip], acres: park[:acres], ward: park[:ward], long: park[:location][:coordinates][0], lat: park[:location][:coordinates][1])
+      end
+
+    end
   end
 
 end

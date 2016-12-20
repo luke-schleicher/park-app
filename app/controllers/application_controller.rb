@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def sign_out
     @current_player = nil
-    cookies.delete[:auth_token]
+    cookies.delete(:auth_token)
   end
 
   def current_player
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   def require_login
     unless signed_in_player?
       flash[:error] = "Sign in first"
-      redirect_to root
+      redirect_to root_path
     end
   end
 

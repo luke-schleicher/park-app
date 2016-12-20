@@ -40,7 +40,7 @@ class Socrata_API
   def self.basic_query(column)
     client = SODA::Client.new({:domain => "data.cityofchicago.org", :app_token => ENV["SOCRATA_APP_TOKEN"]})
 
-    results = client.get("4xwe-2j3y", {"$select" => "park_number, park_name, street_address", "$where" => "#{column} > '0'"})
+    results = client.get("4xwe-2j3y", {"$where" => "#{column} > '0'"})
   end
 
 end
