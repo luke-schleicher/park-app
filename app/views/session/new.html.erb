@@ -1,0 +1,25 @@
+<div class="container">
+
+  <h1>Get your cleats on, player!</h1>
+
+  <%= form_tag session_path do %>  
+
+    <%= label_tag :email %>
+    <%= email_field_tag :email %>
+
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+
+    <%= submit_tag "Put me in, coach!" %>
+
+  <% end %>
+
+  <h3>Don't have an account yet?</h3>
+
+  <%= link_to "Sign up here", new_player_path %>
+
+</div>
+
+
+
+

@@ -1,0 +1,9 @@
+<h1>It's a beautiful day out there. What do you want to play?</h1>
+
+<%= form_for @player do |f| %>
+
+  <%= f.collection_check_boxes(:activity_ids, Activity.all, :id, :name) %>
+
+  <%= f.submit %>
+
+<% end %>
