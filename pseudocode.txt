@@ -1,0 +1,99 @@
+When navigating to the root, the user will come across a landing page with a short explanation of what they can do at the site. The focal point is a large, enticing search bar, where they can enter athletic activities they are interested in trying, or a zip code
+
+The site then sends an API request to the City of Chicago's Park dataset and will return the data. 
+
+Key findings we'll want to display on the dashboard: 
+
+1) Any activities that match the search term
+2) Any activities that are within a close range
+
+Bonus: Result also displays a google map with the location pinned
+
+Once they've searched, we'll give them the option to sign up in order to save their search results for next time. Once they've signed up and logged in, they can also view other people's profiles, and see if they can find an athletic buddy. 
+
+They can also join groups that participate in athletic events every so often.
+
+Bonus: Welcome email, direct message
+
+==================
+DATA MODEL
+
+Player has one profile
+Player has many favorited_activities
+Player has many favorited_parks
+Player has many player_groups
+Player has many searches
+Player has many messages
+
+Activities have many favorited_players
+Activities have many activity_parks
+
+Parks have many favorited_players
+Parks have many activity_parks
+
+Group has many player_groups
+Group has many messages
+
+Player
+  First
+  Last
+  Email
+  Password
+  Password Confirmation
+
+Profile
+  Player ID
+  Nickname
+  Zip Code
+  Photo
+  
+Activity
+  Name
+  Description
+
+ActivityPlayer
+  Activity ID
+  Player ID
+
+ActivityPark
+  Activity ID
+  Park ID
+
+Park
+  Name
+  Number
+  Street Address
+  Zip
+  Acres
+  Ward
+  Long
+  Lat
+
+ParkPlayer
+  Park ID
+  Player ID
+
+Group
+  Title
+  Description
+
+PlayerTeam
+  Player ID
+  Team ID
+
+Message
+  Group ID
+  Player ID
+  Content
+
+Search
+  Player ID
+  Checkboxes with activities
+
+==============================
+
+It's a beautiful day out there. What do you want to play?
+
+Checkboxes that correspond to activities
+
+
