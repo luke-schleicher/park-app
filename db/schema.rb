@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220175022) do
+ActiveRecord::Schema.define(version: 20161220200121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,41 @@ ActiveRecord::Schema.define(version: 20161220175022) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "activity_parks", force: :cascade do |t|
+    t.integer  "activity_id"
+    t.integer  "park_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["activity_id", "park_id"], name: "index_activity_parks_on_activity_id_and_park_id", unique: true, using: :btree
+  end
+
   create_table "activity_players", force: :cascade do |t|
     t.integer  "activity_id"
     t.integer  "player_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["activity_id", "player_id"], name: "index_activity_players_on_activity_id_and_player_id", unique: true, using: :btree
+  end
+
+  create_table "park_players", force: :cascade do |t|
+    t.integer  "park_id"
+    t.integer  "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["park_id", "player_id"], name: "index_park_players_on_park_id_and_player_id", unique: true, using: :btree
+  end
+
+  create_table "parks", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.string   "street_address"
+    t.integer  "zip"
+    t.float    "acres"
+    t.string   "ward"
+    t.float    "long"
+    t.float    "lat"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "players", force: :cascade do |t|

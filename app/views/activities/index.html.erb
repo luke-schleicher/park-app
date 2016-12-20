@@ -1,0 +1,8 @@
+<h1>Here's what <%= @player.first_name %> likes to do</h1>
+
+<ul>
+  <% @activities.each do |activity| %>
+    <li><%= activity.name %></li>
+  <% end %>
+</ul>
+

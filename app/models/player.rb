@@ -7,6 +7,9 @@ class Player < ApplicationRecord
   has_many :activity_players
   has_many :activities, through: :activity_players
 
+  has_many :park_players
+  has_many :parks, through: :park_players
+
   def generate_token
     begin
       self[:auth_token] = SecureRandom.urlsafe_base64

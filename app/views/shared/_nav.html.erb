@@ -1,0 +1,6 @@
+<% if signed_in_player? %>
+  Welcome, <%= current_player.first_name %>
+  <%= link_to "Logout", logout_path, method: :delete %>
+  <%= link_to "Your Activities", player_activities_path(current_player) %>
+  <%= link_to "Add More activities", edit_player_path(current_player) %>
+<% end %>

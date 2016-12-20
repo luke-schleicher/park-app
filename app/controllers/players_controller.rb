@@ -24,6 +24,14 @@ class PlayersController < ApplicationController
   end
 
   def update
+    @player = current_player
+    if @player.update(whitelisted_update_params)
+      flash[:success] = "Player updated"
+      redirect_to player_parks_path(@player)
+    else
+      flash[:error] = @player.errors.full_messages
+      render :edit
+    end
   end
 
   private
@@ -33,6 +41,7 @@ class PlayersController < ApplicationController
   end
 
   def whitelisted_update_params
+    params.require(:player).permit(:activity_ids => [])
   end
 
 end
