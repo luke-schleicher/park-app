@@ -1,4 +1,4 @@
-<h1><%= @park.name %></h1>
+<h1><%= @park.name.titleize %></h1>
 
 <p>Address: <%= @park.street_address %>, <%= @park.zip %></p>
 
@@ -8,6 +8,6 @@
 
 <ul>
   <% @park.activities.each do |activity| %>
-    <li><%= activity.name %></li>
+    <li><%= display_activity(activity) %></li>
   <% end %>
 </ul>

@@ -36,15 +36,27 @@ class Player < ApplicationRecord
   end
 
   def generate_favorite_parks
+
+    self.parks.destroy_all
+
     self.activities.each do |activity|
 
       returned_parks = Socrata_API.query(activity.name)
 
       returned_parks.each do |park|
-        self.parks << Park.new(name: park[:park_name], number: park[:park_number], street_address: park[:street_address], zip: park[:zip], acres: park[:acres], ward: park[:ward], long: park[:location][:coordinates][0], lat: park[:location][:coordinates][1])
+
+        p = Park.find_or_create_by(name: park[:park_name], number: park[:park_number], street_address: park[:street_address], zip: park[:zip], acres: park[:acres], ward: park[:ward])
+
+        self.parks << p unless self.parks.include?(p)
+
+        a = Activity.find_or_create_by(name: activity.name)
+
+        p.activities << a unless p.activities.include?(a)
+
       end
 
     end
+
   end
 
 end
