@@ -1,0 +1,7 @@
+<h1>Here's a few parks where you can participate in: <%= @activity.name %></h1>
+
+<ul>
+  <% @activity.parks.each do |park| %>
+    <li><%= link_to park.name.titleize, park_path(park) %></li>
+  <% end %>
+</ul>

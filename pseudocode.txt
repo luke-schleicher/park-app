@@ -18,7 +18,6 @@ Bonus: Welcome email, direct message
 ==================
 DATA MODEL
 
-Player has one profile
 Player has many favorited_activities
 Player has many favorited_parks
 Player has many player_groups
@@ -40,12 +39,6 @@ Player
   Email
   Password
   Password Confirmation
-
-Profile
-  Player ID
-  Nickname
-  Zip Code
-  Photo
   
 Activity
   Name

@@ -3,6 +3,6 @@
 <% @parks.each do |park| %>
 
   <h4><%= link_to park.name.titleize, park_path(park) %></h4>
-  <p><%= park.street_address.titleize %>
+  <p><%= park.street_address.titleize %></p>
 
 <% end %>

@@ -44,6 +44,8 @@ From the command line, run 'git clone https://github.com/luke-schleicher/park-ap
 
 cd into the app with 'cd "Park App"'
 
+Run 'bundle install'
+
 You'll need to either contact me for the Socrata App key, or sign up for your own at https://data.cityofchicago.org/profile/app_tokens. You can then run 'bundle exec figaro install', navigate to the 'application.yml' file, and set 'SOCRATA_APP_TOKEN: (your token here)'
 
 Since this Rails app is configured to run on a Postgresql server, you'll need to make sure you have [Postgresql installed and running](https://www.postgresql.org/download/).

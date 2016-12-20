@@ -5,4 +5,8 @@ class ActivitiesController < ApplicationController
     @activities = @player.activities
   end
 
+  def show
+    @activity = Activity.find(params[:id])
+  end
+
 end
