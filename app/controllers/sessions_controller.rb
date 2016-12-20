@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 
   skip_before_action :require_login, only: [:new, :create]
 
@@ -10,7 +10,7 @@ class SessionController < ApplicationController
     if @player && @player.authenticate(params[:password])
       sign_in(@player)
       flash[:success] = "Welcome!"
-      redirect_to @player
+      redirect_to edit_player_path(@player)
     else
       flash[:error] = "Couldn't log in"
       redirect_to :new
