@@ -31,6 +31,8 @@ gem 'faker'
 
 gem 'figaro'
 
+gem 'soda-ruby'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
