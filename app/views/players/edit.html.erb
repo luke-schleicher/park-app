@@ -2,7 +2,7 @@
 
 <%= form_for @player do |f| %>
 
-  <%= f.collection_check_boxes(:activity_ids, Activity.all, :id, :name) %>
+  <%= f.collection_check_boxes(:activity_ids, @activities, :id, :display_activity) %>
 
   <%= f.submit %>
 

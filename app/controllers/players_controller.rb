@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
   end
 
   def create
-    @player = Player.new(whitelisted_params)
+    @player = Player.new(whitelisted_create_params)
     if @player.save
       sign_in(@player)
       flash[:success] = "Player created"
@@ -20,6 +20,7 @@ class PlayersController < ApplicationController
 
   def edit
     @player = current_player
+    @activities = Activity.all
   end
 
   def update
@@ -27,8 +28,11 @@ class PlayersController < ApplicationController
 
   private
 
-  def whitelisted_params
+  def whitelisted_create_params
     params.require(:player).permit(:first_name, :last_name, :nick_name, :email, :password, :password_confirmation, :zip)
+  end
+
+  def whitelisted_update_params
   end
 
 end
