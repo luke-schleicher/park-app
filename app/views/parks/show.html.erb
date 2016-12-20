@@ -1,0 +1,13 @@
+<h1><%= @park.name %></h1>
+
+<p>Address: <%= park.street_address %>, <%= park.zip %></p>
+
+<p><%= @park.acres %> acres</p>
+
+<h3>Here are some fun things you can do at <%= @park.name %></h3>
+
+<ul>
+  <% @park.activities.each do |activity| %>
+    <li><%= activity.name %></li>
+  <% end %>
+</ul>

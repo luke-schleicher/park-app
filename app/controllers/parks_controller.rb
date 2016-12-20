@@ -5,4 +5,8 @@ class ParksController < ApplicationController
     @parks = @player.parks    
   end
 
+  def show
+    @park = Park.find(params[:id])
+  end
+
 end

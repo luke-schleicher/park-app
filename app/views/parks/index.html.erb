@@ -1,0 +1,8 @@
+<h1>Here are the parks you may be interested in...</h1>
+
+<% @parks.each do |park| %>
+
+  <h4><%= link_to park.name, park_path(park) %></h4>
+  <p><%= park.street_address %>
+
+<% end %>
