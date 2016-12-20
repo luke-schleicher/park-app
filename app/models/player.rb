@@ -1,5 +1,7 @@
 class Player < ApplicationRecord
 
+  after_update :generate_favorite_parks
+
   before_create :generate_token
 
   has_secure_password
@@ -20,6 +22,11 @@ class Player < ApplicationRecord
     self.auth_token = nil
     generate_token
     save!
+  end
+
+  private
+
+  def generate_favorite_parks
   end
 
 end
