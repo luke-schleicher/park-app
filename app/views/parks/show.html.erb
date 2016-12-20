@@ -1,13 +1,15 @@
 <h1><%= @park.name.titleize %></h1>
 
-<p>Address: <%= @park.street_address.titleize %>, <%= @park.zip %></p>
-
 <p><%= @park.acres %> acres</p>
 
 <h3>Here are some fun things you can do at <%= @park.name.titleize %></h3>
 
 <ul>
   <% @park.activities.each do |activity| %>
-    <li><%= display_activity(activity) %></li>
+    <li><%= link_to display_activity(activity), activity_path(activity) %></li>
   <% end %>
 </ul>
+
+<h3>Where You Can Find <%= @park.name.titleize %></h3>
+
+<p><%= @park.street_address.titleize %>, Chicago, <%= @park.zip %></p>

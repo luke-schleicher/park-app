@@ -6,10 +6,10 @@ class Socrata_API
 
     results = basic_query(column)
 
-    puts "Got #{results.count} results. Dumping first results:"
+    logger.debug { "Got #{results.count} results. Dumping first results:" }
 
     results.first.each do |k, v|
-      puts "#{k}: #{v}"
+      logger.debug { "#{k}: #{v}" }
     end
 
     results
@@ -28,7 +28,7 @@ class Socrata_API
       unless non_sports.include?(k)
         a = Activity.new(name: k)
         if a.save
-          puts "#{k} successfully saved"
+          logger.debug { "#{k} successfully saved" }
         end
       end
     end

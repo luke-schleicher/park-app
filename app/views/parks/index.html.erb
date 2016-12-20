@@ -1,8 +1,18 @@
-<h1>Here are the parks you may be interested in...</h1>
+<% if @parks.any? %>
 
-<% @parks.each do |park| %>
+  <h1>Here are the parks you may be interested in...</h1>
 
-  <h4><%= link_to park.name.titleize, park_path(park) %></h4>
-  <p><%= park.street_address.titleize %></p>
+  <% @parks.each do |park| %>
+
+    <h4><%= link_to park.name.titleize, park_path(park) %></h4>
+    <p><%= park.street_address.titleize %></p>
+
+  <% end %>
+
+<% else %>
+
+  <h1>Go choose some activities so we can give you park recommendations!</h1>
+
+  <%= link_to "Choose activities", edit_player_path(@player) %>
 
 <% end %>

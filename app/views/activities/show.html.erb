@@ -1,4 +1,4 @@
-<h1>Here's a few parks where you can participate in: <%= @activity.name %></h1>
+<h1>Here's a few parks where you can try: <%= display_activity(@activity) %></h1>
 
 <ul>
   <% @activity.parks.each do |park| %>

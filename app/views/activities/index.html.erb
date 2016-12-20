@@ -1,8 +1,18 @@
-<h1>Here's what <%= @player.first_name %> likes to do</h1>
+<% if @activities.any? %>
 
-<ul>
-  <% @activities.each do |activity| %>
-    <li><%= link_to activity.name, activity_path(activity) %></li>
-  <% end %>
-</ul>
+  <h1>Here's what <%= @player.first_name %> likes to do</h1>
+
+  <ul>
+    <% @activities.each do |activity| %>
+      <li><%= link_to activity.name, activity_path(activity) %></li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+  <h1>Go choose some favorite activities!</h1>
+
+  <%= link_to "Choose Activities", edit_player_path(@player) %>
+
+<% end %>
 
