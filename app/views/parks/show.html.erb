@@ -14,3 +14,11 @@
 
 <p><%= @park.street_address.titleize %>, Chicago, <%= @park.zip %></p>
 
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" 
+  style="border:0"
+  src="<%= display_map(@park) %>"
+  allowfullscreen>
+</iframe>
