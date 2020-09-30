@@ -36,9 +36,7 @@ The Socrata API token is secured using Figaro
 
 ## How To Download and Run
 
-The simple way to run the app is to [view it on heroku](https://young-ridge-69926.herokuapp.com)
-
-Here's what to do if you'd rather run the app on your machine:
+To run the app on your machine:
 
 From the command line, run 'git clone https://github.com/luke-schleicher/park-app.git' into the folder you'd like to load the app into
 
